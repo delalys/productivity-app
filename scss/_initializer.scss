@@ -1,0 +1,104 @@
+// couleur hexadécimale
+//  |
+//  v
+
+$blue: #25aae2;
+$red: #ee7c72;
+$orange: #ff7d13;
+$grey: #a9a9a9;
+$yellow: #ffc020;
+$beige: #ece7e3;
+
+
+// Couleur sémantique
+//  |
+//  v
+
+// Couleur PRIMAIRE et ses teintes dérivées
+$primary-color: $red;
+$primary-color-light: #f19087;
+$primary-color-light-2: #f3a49d;
+$primary-color-light-3: #f6b7b2;
+$primary-color-light-4: #f8cbc7;
+$primary-color-dark: #cb6a61;
+$primary-color-dark-2: #a65750;
+$primary-color-dark-3: #83443f;
+$primary-color-dark-4: #5f322e;
+
+// Couleur SECONDAIRE et ses teintes dérivées
+$secondary-color: $red;
+$secondary-color-light: #ff6541;
+$secondary-color-light-2: #ff8163;
+$secondary-color-light-3: #ff9c85;
+$secondary-color-light-4: #ffb7a6;
+$secondary-color-dark: #d93f1b;
+$secondary-color-dark-2: #b23416;
+$secondary-color-dark-3: #8c2912;
+$secondary-color-dark-4: #661e0d;
+
+// Couleur TERTIAIRE et ses teintes dérivées
+$tertiary-color: $yellow;
+$tertiary-color-light: #ffc941;
+$tertiary-color-light-2: #ffd363;
+$tertiary-color-light-3: #ffdc85;
+$tertiary-color-light-4: #ffe6a6;
+$tertiary-color-dark: #d9a31b;
+$tertiary-color-dark-2: #b28616;
+$tertiary-color-dark-3: #8c6912;
+$tertiary-color-dark-4: #664d0d;
+
+// Couleur de FOND et ses teintes dérivées
+$background-color: #ede8e8;
+$background-color-light: #efebe7;
+$background-color-light-2: #f2eeeb;
+$background-color-light-3: #f5f2f0;
+$background-color-light-4: #f7f5f4;
+$background-color-dark: #c9c5c1;
+$background-color-dark-2: #f1e8dd;
+$background-color-dark-3: #d3cbc0;
+
+// Couleur de TEXTE et ses teintes dérivées
+$text-color: $grey;
+$text-color-light: #b6b6b6;
+$text-color-light-2: #c3c3c3;
+$text-color-light-3: #d0d0d0;
+$text-color-light-4: #dddddd;
+$text-color-dark: #909090;
+$text-color-dark-2: #767676;
+$text-color-dark-3: #5d5d5d;
+$text-color-dark-4: #444444;
+
+// Texte de titre et de corps
+$text-font: "helvetica neue";
+$title-font: "BenchNine";
+$title-font-light: "merriweather-sans-light";
+
+// Variables de d'échelle modulaire sur le nombre d'or ratio 1.618
+$n8: 751.538px;
+$n7: 464.486px;
+$n6: 287.074px;
+$n5: 177.425px;
+$n4: 109.657px;
+$n3: 67.773px;
+$n2: 41.887px;
+$n1: 25.888px;
+$n: 16px;
+$n-1: 9.889px;
+$n-2: 6.112px;
+$n-3: 3.778px;
+$n-4: 2.335px;
+$n-5: 1.443px;
+
+
+@import "font-awesome"; // pack d'icone vectoriel
+@import "../css/font-awesome-ie7.min.css"; // pack d'icone vectoriel pour IE
+@import "starter-kit"; // style pour la page index.html
+
+@import "compass/css3";
+
+@import "base";
+@import "font";
+@import "tools";
+@import "module";
+@import "layout";
+//@import "style";

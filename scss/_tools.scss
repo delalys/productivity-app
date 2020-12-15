@@ -1,0 +1,55 @@
+// Dégradé PRIMAIRE
+.primary-gradient {
+	@include background-image(linear-gradient($primary-color-light, $primary-color));
+}
+.classic-gradient {
+	@include background-image(linear-gradient(#ffffff, #f0f0f0));
+}
+// Ombre appliquée de manière persistente au travers du design
+.shadow {
+	//@include box-shadow(rgba(0,0,0,0.25) 0px 1px 2px);
+}
+.no-shadow {
+	@include box-shadow(rgba(0,0,0,0) 0px 0px 0px);
+}
+// Coins arrondis de 8px selon la charte graphique
+.radius {
+	//@include border-radius(8px);
+}
+// Coins arrondis de 8px selon la charte graphique
+.no-radius {
+	@include border-radius(0px);
+}
+// réduit un texte classique en texte moins important
+.small {
+	font-size: 0.8em;
+	line-height: 1.4em;
+}
+// réduit un texte classique en texte boucoup moins important
+.very-small {
+	font-size: 0.6em;
+	line-height: 1.3em;
+}
+.is-bold {
+	font-weight: bold;
+}
+// rends le texte en couleur plus clair
+.color-is-light {
+	color: $text-color-light-2;
+}
+.font-is-light {
+	font-family: '#{$title-font-light}', helvetica, arial;	
+}
+// rétablie la hauteur lors de l'utilisation de floats
+.clear, .clearfix {
+	clear:both;
+}
+.relative {
+	position: relative;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}

@@ -1,0 +1,23 @@
+body {
+	background: $background-color;
+}
+body, p {
+	color: $grey;
+}
+a {
+	color: $primary-color;
+	text-decoration: none;		
+	&:hover {
+		color: $primary-color-light-2;
+		text-decoration: none;		
+	}
+	&:active {
+		color: $primary-color-dark-2;				
+	}
+}
+h1 {
+	color: $text-color-dark-2;
+}
+h1, h2, h3, h4, h5, h6 {	
+	font-family: $title-font;
+}

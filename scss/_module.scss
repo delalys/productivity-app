@@ -1,0 +1,7 @@
+.box {
+	padding: $n1;
+	@include box-sizing(border-box);
+	border: solid 2px $primary-color;
+//	@include border-radius(4px);
+	background: white;
+}
