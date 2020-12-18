@@ -10,7 +10,12 @@
 	opacity: 0.3 !important;
 }
 
+.list-group-item.half-opacity label {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
 .list-group-item {
+	display: flex;
 	padding: 0;
 	border-color: #d5dde4;
 }
@@ -174,4 +179,35 @@ svg {
 	right: 0;
 	z-index: 4;
 	cursor: pointer;
+}
+
+
+
+@media (max-width: 576px) {
+	h1 {
+		font-size: 1.5rem;
+	}
+	.list-group-container {
+		padding-top: 0 !important;
+		margin-top: 1rem !important;
+	}
+	.list-group-container .form-group {
+		margin-bottom: 0;
+	}
+	.list-group-item {
+		overflow: hidden;
+	}
+	.list-group,
+	.list-group-item {
+		display: block;
+	}
+	.list-group-btn .btn {
+		opacity: 1;
+	}
+	.list-group-btn {
+		margin-left: 1.25rem !important;
+	}
+	.pretty {
+		margin-right: 0;
+	}
 }

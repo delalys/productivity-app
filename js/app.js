@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	var listDone = document.querySelector('.list-group.done');
 	var listItem = list.children;
 	var li;
-	var tasks = [
+	let tasks = [
 		{
 			name : "Anwser first mail",
 			id : 0,
@@ -74,9 +74,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		tasks.push({name:nameValue,id:idValue,orderId:orderValue,state:stateValue});
 	}
 	// Creates task in DOM and in Object
-	function HTMLTaskCreator(name, idValue, orderValue, stateValue) {
+	function HTMLTaskCreator(name, idValue, orderValue, stateValue, animated) {
 		var newItem = document.createElement('li');
-		newItem.className = 'list-group-item d-flex align-items-center animate__animated animate__fadeIn';
+		if (animated) {
+			newItem.className = 'list-group-item align-items-center animate__animated animate__fadeInDown animate__faster';
+		} else {
+			newItem.className = 'list-group-item align-items-center';
+		}
 		newItem.innerHTML = `
 			<div class="form-check col pretty p-bigger p-smooth p-round p-icon">
 				<input class="form-check-input" type="checkbox" value="" id="">
@@ -122,10 +126,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		if (event.target == newItemButton) {
 			var nameValue = document.getElementById('newItem').value;
 			var idValue = tasks.length;
-			var newItemOrder = document.querySelector('.list-group.done .list-group-item:last-child').getAttribute('data-task-order-id');
+			var newItemOrder = document.querySelector('.list-group.undone').childNodes.length -1;
+			console.log(newItemOrder);
 			var stateValue = "undone";
 			// Creates task in DOM & Object
-			HTMLTaskCreator(nameValue, idValue, newItemOrder, stateValue);
+			HTMLTaskCreator(nameValue, idValue, newItemOrder, stateValue, true);
 			// Clears input
 			document.getElementById('newItem').value = '';
 		}
@@ -136,18 +141,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		if (event.target.classList.contains('btn-delete')) {
 			let li = event.target.parentNode.parentNode;
 			let index = li.getAttribute('data-task-id');
-			// remove task in object
-			taskDeletor(index);
-			// remove task in HTML
-			li.remove();
-			for (i = 0; i < tasks.length ; i++) {
-				// resets orders iD in Object
-				if (document.querySelectorAll('.list-group-item')[i]) {
-					document.querySelectorAll('.list-group-item')[i].setAttribute('data-task-order-id', i);
+			let classesToAdd = [ 'animate__animated', 'animate__fadeOutUp'];
+			li.classList.add(...classesToAdd);
+			
+			setTimeout(function(){ 
+				// remove task in object
+				taskDeletor(index);
+				// remove task in HTML
+				li.remove();
+				for (i = 0; i < tasks.length ; i++) {
+					// resets orders iD in Object
+					if (document.querySelectorAll('.list-group-item')[i]) {
+						document.querySelectorAll('.list-group-item')[i].setAttribute('data-task-order-id', i);
+					}
+					// resets orders iD in DOM
+					tasks[i].orderId = i;
 				}
-				// resets orders iD in DOM
-				tasks[i].orderId = i;
-			}
+			}, 800);
+
 		}
 		// MOVE UP
 		if (event.target.classList.contains('btn-up')) {
@@ -213,11 +224,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			let input = event.target;
 
 			if(input.checked == false) {
-				list.appendChild(li);
+				li.classList.remove('half-opacity');
+				let classesToAdd = [ 'animate__animated', 'animate__fadeInDown'];
+				li.classList.add(...classesToAdd);
 				tasks[taskId].state = "undone";
+				list.appendChild(li);
 		    } else if (input.checked == true) {
-				listDone.appendChild(li);
-				tasks[taskId].state = "done";
+				let classesToAdd = [ 'animate__animated', 'animate__fadeOutUp'];
+				li.classList.add('half-opacity');
+				setTimeout(function(){ 
+					li.classList.add(...classesToAdd);
+					setTimeout(function(){ 
+						listDone.appendChild(li);
+						tasks[taskId].state = "done";
+						li.classList.remove(...classesToAdd);
+					}, 800);
+				}, 800);
 		    }
 		}
 	});
