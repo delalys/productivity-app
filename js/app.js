@@ -127,12 +127,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			var nameValue = document.getElementById('newItem').value;
 			var idValue = tasks.length;
 			var newItemOrder = document.querySelector('.list-group.undone').childNodes.length -1;
-			console.log(newItemOrder);
 			var stateValue = "undone";
 			// Creates task in DOM & Object
 			HTMLTaskCreator(nameValue, idValue, newItemOrder, stateValue, true);
+			let li = document.querySelector('.list-group.undone').lastChild;
 			// Clears input
 			document.getElementById('newItem').value = '';
+			let classesToRemove = [ 'animate__animated', 'animate__fadeInDown', 'animate__faster'];
+			setTimeout(function(){
+				li.classList.remove(...classesToRemove);
+			}, 800);
 		}
 	});
 
@@ -229,6 +233,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				li.classList.add(...classesToAdd);
 				tasks[taskId].state = "undone";
 				list.appendChild(li);
+				setTimeout(function(){
+					li.classList.remove(...classesToAdd);
+				}, 800);
 		    } else if (input.checked == true) {
 				let classesToAdd = [ 'animate__animated', 'animate__fadeOutUp'];
 				li.classList.add('half-opacity');
