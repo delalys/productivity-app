@@ -1,4 +1,4 @@
-# productivity-app
+# Productivity app
 I've developed this application to learn Javascript.
 
 It is entirely in plain Javascript. I have developed it after 1 week of studying.
